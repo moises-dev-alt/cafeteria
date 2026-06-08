@@ -212,7 +212,9 @@ O projeto utiliza o Firebase Firestore para armazenar pedidos.
 Coleção utilizada
 orders
 Estrutura básica do documento
+
 {
+ 
   "id": "171234567890",
   
   "name": "João Silva",
@@ -236,6 +238,7 @@ Estrutura básica do documento
   "createdAt": "timestamp"
   
 }
+
 📦 Fluxo do Pedido
 Cliente
    ↓
