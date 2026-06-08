@@ -214,16 +214,27 @@ orders
 Estrutura básica do documento
 {
   "id": "171234567890",
+  
   "name": "João Silva",
+  
   "phone": "11999999999",
+  
   "fulfillment": "delivery",
+  
   "payment": "pix",
+  
   "items": [],
+  
   "subtotal": 20.00,
+  
   "deliveryFee": 4.90,
+  
   "total": 24.90,
+  
   "status": "novo",
+  
   "createdAt": "timestamp"
+  
 }
 📦 Fluxo do Pedido
 Cliente
