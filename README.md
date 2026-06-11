@@ -95,6 +95,119 @@ const firebaseConfig = {
   
 };
 
+## 🔥 Configuração do Firebase
+
+Este projeto utiliza **Firebase Hosting** para hospedagem e **Cloud Firestore** para armazenamento dos pedidos.
+
+### Estrutura do Firebase
+
+Arquivo firebase.json:
+
+json
+{
+  "hosting": {
+    "public": "dist",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  },
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  }
+}
+
+
+### O que cada configuração faz
+
+#### Hosting
+
+* public: "dist" → define a pasta gerada pelo Vite para publicação.
+* rewrites → permite que o React Router funcione corretamente ao atualizar páginas ou acessar rotas diretamente.
+
+#### Firestore
+
+* rules → arquivo responsável pelas regras de segurança do banco de dados.
+* indexes → arquivo que armazena índices utilizados em consultas mais avançadas.
+
+---
+
+### Configurar o Firestore
+
+1. Acesse o Firebase Console.
+2. Crie um projeto.
+3. Ative o **Cloud Firestore**.
+4. Crie um banco no modo Produção ou Teste.
+5. Copie as credenciais do projeto para o arquivo `src/firebase.js`.
+
+Exemplo:
+
+javascript
+const firebaseConfig = {
+  apiKey: "SUA_API_KEY",
+  authDomain: "SEU_PROJETO.firebaseapp.com",
+  projectId: "SEU_PROJETO",
+  storageBucket: "SEU_PROJETO.appspot.com",
+  messagingSenderId: "123456789",
+  appId: "1:123456789:web:abcdef123456"
+};
+
+
+---
+
+### Publicar o Banco de Dados e Regras
+
+Após configurar o Firebase, execute:
+
+bash
+firebase deploy --only firestore
+
+
+Para publicar apenas as regras:
+
+bash
+firebase deploy --only firestore:rules
+
+
+Para publicar apenas os índices:
+
+bash
+firebase deploy --only firestore:indexes
+
+
+---
+
+### Publicar a Aplicação
+
+Gerar build:
+
+bash
+npm run build
+
+
+Realizar deploy:
+
+bash
+firebase deploy
+
+
+O Firebase irá publicar:
+
+* Hosting (dist)
+* Regras do Firestore (firestore.rules)
+* Índices do Firestore (firestore.indexes.json)
+
+conforme configurado no arquivo firebase.json.
+
+
 📈 Melhorias Futuras
 
 Login de usuários
