@@ -42,8 +42,8 @@ export default function CartDrawer({ open, onClose, onCheckout }) {
               <p>Adicione um cafe ou lanche para continuar.</p>
             </div>
           )}
-          {items.map(item => (
-            <div key={item.id} className="cart-item">
+          {items.map((item, index) => (
+            <div key={item.id} className="cart-item cascade-fade" style={{ '--enter-delay': `${Math.min(index, 8) * 75}ms` }}>
               <div>
                 <strong>{item.name}</strong>
                 <div className="muted">R$ {item.price.toFixed(2)} cada</div>

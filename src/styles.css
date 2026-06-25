@@ -920,9 +920,18 @@ button:disabled {
 
 .fade-in {
   opacity: 0;
-  transform: translateY(10px);
-  animation: fadeUp 0.46s ease forwards;
+  transform: translateY(18px) scale(0.985);
+  animation: cascadeFadeIn 0.62s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
   animation-delay: var(--enter-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+.cascade-fade {
+  opacity: 0;
+  transform: translateY(14px);
+  animation: cascadeFadeIn 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  animation-delay: var(--enter-delay, 0ms);
+  will-change: opacity, transform;
 }
 
 .hero-enter {
@@ -992,6 +1001,18 @@ button:disabled {
 
 @keyframes fadeUp {
   to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes cascadeFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(18px) scale(0.985);
+  }
+
+  100% {
     opacity: 1;
     transform: none;
   }
