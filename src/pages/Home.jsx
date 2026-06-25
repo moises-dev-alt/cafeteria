@@ -9,14 +9,14 @@ export default function Home({ onNavigate }) {
     <main>
       <section className="hero container">
         <div className="hero-copy">
-          <p className="eyebrow">Cafe especial todos os dias</p>
-          <h1>Seu pedido pronto para aquecer a rotina.</h1>
-          <p>Escolha bebidas, salgados e doces fresquinhos para retirar no balcao ou receber em casa.</p>
-          <div className="hero-actions">
+          <p className="eyebrow hero-enter">Cafe especial todos os dias</p>
+          <h1 className="hero-enter delay-1">Seu pedido pronto para aquecer a rotina.</h1>
+          <p className="hero-enter delay-2">Escolha bebidas, salgados e doces fresquinhos para retirar no balcao ou receber em casa.</p>
+          <div className="hero-actions hero-enter delay-3">
             <button className="btn" onClick={() => onNavigate('menu')}>Ver cardapio</button>
             <button className="ghost-btn" onClick={() => onNavigate('menu')}>Pedir agora</button>
           </div>
-          <div className="hero-stats" aria-label="Destaques da cafeteria">
+          <div className="hero-stats hero-enter delay-4" aria-label="Destaques da cafeteria">
             <span><strong>15 min</strong> preparo medio</span>
             <span><strong>4.9</strong> avaliacao</span>
             <span><strong>9</strong> opcoes</span>
@@ -40,8 +40,8 @@ export default function Home({ onNavigate }) {
       </section>
 
       <section className="container featured-grid">
-        {featured.map(product => (
-          <ProductCard key={product.id} product={product} />
+        {featured.map((product, index) => (
+          <ProductCard key={product.id} product={product} index={index} />
         ))}
       </section>
     </main>

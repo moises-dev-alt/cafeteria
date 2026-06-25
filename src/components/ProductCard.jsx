@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useCart } from '../context/CartContext'
 
-export default function ProductCard({ product }) {
+export default function ProductCard({ product, index = 0 }) {
   const { add } = useCart()
   const [qty, setQty] = useState(1)
   const [added, setAdded] = useState(false)
@@ -13,7 +13,7 @@ export default function ProductCard({ product }) {
   }
 
   return (
-    <article className={`card fade-in ${added ? 'added' : ''}`}>
+    <article className={`card fade-in ${added ? 'added' : ''}`} style={{ '--enter-delay': `${Math.min(index, 6) * 70}ms` }}>
       {product.image && (
         <div className="card-media">
           <img src={product.image} alt={product.name} />

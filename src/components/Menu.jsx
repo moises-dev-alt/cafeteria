@@ -53,8 +53,8 @@ export default function Menu() {
       </div>
       <div className="result-count">{filtered.length} item(ns) encontrado(s)</div>
       <div className="grid">
-        {filtered.map(product => (
-          <ProductCard key={product.id} product={product} />
+        {filtered.map((product, index) => (
+          <ProductCard key={product.id} product={product} index={index} />
         ))}
         {filtered.length === 0 && (
           <div className="empty-state">
